@@ -141,31 +141,28 @@ namespace AWSUploadDownload
             //Upload a file 
             try
             {
-                Console.Write("Upload Default Test file? (Y/N): ");
+
+                string uploadFilePath = "";
+                string formatedDate = DateTime.Now.ToString();
+                formatedDate = Regex.Replace(formatedDate, "[^a-zA-Z0-9]", "_");
+                string fileName = "";
+
+
+                Console.Write("Upload file? (Y/N): ");
                 string input = Console.ReadLine();
                 input = input.Trim().ToLower();
 
-
-                string uploadFilePath = "Scroll.jpg";
-                string formatedDate = DateTime.Now.ToString();
-                formatedDate = Regex.Replace(formatedDate, "[^a-zA-Z0-9]", "_");
-                string fileName = "Scroll" + formatedDate + ".jpg";
-
                 if (input.Equals("y") == true)
                 {
-                    Console.Write("Uploading the Ranger Scroll image...");
-                }
-                else if (input.Equals("n") == true)
-                {
-                    Console.Write("Enter a valid filepath: ");
+                    Console.Write("Enter a valid filepath to the file you wish to upload: ");
                     uploadFilePath = Console.ReadLine();
                     char[] delimiterChars = { '\\', '/' };
                     string[] pathSplit = uploadFilePath.Split(delimiterChars);
-                    fileName = pathSplit[pathSplit.Length - 1];
+                    fileName = formatedDate+"_"+pathSplit[pathSplit.Length - 1];
                 }
                 else
                 {
-                    Console.Write("Input Error");
+                    Console.WriteLine("Goodbye..");
                     return;
                 }
 
