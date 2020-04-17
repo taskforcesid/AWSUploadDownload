@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "AWSUploadDownload": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AWS_REGION": "us-west-1",
+        "AWS_PROFILE": "mylmuser"
+      }
+    }
+  }
+}
