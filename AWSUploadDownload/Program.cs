@@ -1,4 +1,8 @@
-﻿using System;
+﻿// ALADIN SIDAHMED
+// aladin.sidahmed@gmail.com
+// 17 APR 2020
+
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
@@ -15,24 +19,9 @@ namespace AWSUploadDownload
 {
     class Program
     {
-        static void AuthenticateAWSUser()
-        {
-            var options = new CredentialProfileOptions
-            {
-                AccessKey = "AKIAXILVDSA2ROBR3CIJ",
-                SecretKey = "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"
-            };
-            var profile = new Amazon.Runtime.CredentialManagement.CredentialProfile("mylmuser", options);
-            profile.Region = RegionEndpoint.USWest1;
-            var netSDKFile = new Amazon.Runtime.CredentialManagement.NetSDKCredentialsFile();
-            netSDKFile.RegisterProfile(profile);
-
-        }
-
         // Function Main
         static async Task Main(string[] args)
         {
-            AuthenticateAWSUser();
             // Create an S3 client object.
             var client = new AmazonS3Client();
             S3Bucket activeBucket = new S3Bucket();
